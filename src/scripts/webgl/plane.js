@@ -22,7 +22,8 @@ export class Plane extends WebglBase {
         const texture = new Image();
         texture.width = 320;
         texture.height = 180;
-        texture.src = `public/images/sample-0${i + 1}.png`;
+        texture.crossOrigin = 'anonymous';
+        texture.src = `https://arsagahisamikurita.github.io/webgl-particle/images/sample-0${i + 1}.png`;
         texture.ratio = 1;
   
         texture.addEventListener('load', () => {

@@ -118,7 +118,7 @@ void main() {
     // displaced.xy -= vec2(320, 180) * 0.5;
 
     vec4 mvPosition = modelViewMatrix * vec4(displaced, 1.0);
-    mvPosition.xyz += position * (pSize * 0.010);
+    mvPosition.xyz += position;
     gl_Position = projectionMatrix * mvPosition;
     gl_PointSize = pSize;
 }
