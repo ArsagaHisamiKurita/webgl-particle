@@ -108,17 +108,18 @@ void main() {
     // vec3 greyEdge = vec3(0.21, 0.71, 0.7); // 閾値
     // float psize = 5.0;
     // psize *= psize *= max(grey, 0.2);
-    float baseSize = 4.0;
+    float baseSize = 3.0;
     float colorSize = (color_1.r + color_1.g + color_1.b);
-    float pSize = (snoise_1_2(vec2(time, p_indecies) * 0.5) + baseSize);
+    float pSize = (snoise_1_2(vec2(time, p_indecies) * 0.5) * 3.0 + baseSize);
     pSize *= max(colorSize, 0.2);
 
     vec3 displaced = position;
     displaced.xy += vec2(random(p_indecies) - 0.5, random(position.x + p_indecies) - 0.5);
-    // displaced.xy -= vec2(320, 180) * 0.5;
 
     vec4 mvPosition = modelViewMatrix * vec4(displaced, 1.0);
-    mvPosition.xyz += position;
+
+    // mvPosition.xyz += position * (sin(time * 0.010 * random(p_indecies)) * 0.1);
+
     gl_Position = projectionMatrix * mvPosition;
     gl_PointSize = pSize;
 }

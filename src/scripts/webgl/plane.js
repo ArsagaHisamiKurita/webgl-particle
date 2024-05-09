@@ -22,8 +22,7 @@ export class Plane extends WebglBase {
         const texture = new Image();
         texture.width = 320;
         texture.height = 180;
-        texture.crossOrigin = 'anonymous';
-        texture.src = `https://arsagahisamikurita.github.io/webgl-particle/images/sample-0${i + 1}.png`;
+        texture.src = `public/images/sample-0${i + 1}.png`;
         texture.ratio = 1;
   
         texture.addEventListener('load', () => {
@@ -122,6 +121,6 @@ export class Plane extends WebglBase {
     if (this.orbitcontrols) this.orbitcontrols.update();
     this.renderer.render(this.scene, this.camera);
 
-    if(this.mesh) this.mesh.material.uniforms.time.value += 0.01;
+    if(this.mesh) this.mesh.material.uniforms.time.value += 0.005;
   }
 }

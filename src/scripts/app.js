@@ -8,13 +8,13 @@ export const App = () => {
   // Init
   plane.init();
 
-  // RAF
+  // Raf
   gsap.ticker.add(() => {
-    console.log('RAF');
+    console.log('Raf');
     plane.onRaf();
   });
 
-  // load
+  // Load
   window.addEventListener("load", () => {
     plane.onOpenning();
   });
